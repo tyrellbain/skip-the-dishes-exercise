@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PageTitle, PageHeader } from '../../styles/global';
 import { useTranslation } from 'react-i18next';
-import CharacterCard, { Character } from './components/CharacterCard';
+import { Character } from './components/CharacterCard';
 import './i18n';
 import {
   API_RESOURCE,
@@ -9,7 +9,7 @@ import {
   featchList,
 } from '../../services/API/swapi';
 import { mapResponseToState } from './helpers';
-import { CharacterListWrapper } from './styles';
+import { CharacterListWrapper, StyledCharacterCard } from './styles';
 
 export default function CharactersPage() {
   const { t } = useTranslation('characters');
@@ -34,7 +34,7 @@ export default function CharactersPage() {
       </PageHeader>
       <CharacterListWrapper>
         {characterList.map((character) => (
-          <CharacterCard key={character.name} character={character} />
+          <StyledCharacterCard key={character.name} character={character} />
         ))}
       </CharacterListWrapper>
     </>

@@ -9,9 +9,9 @@ export function mapResponseToState(
     gender: character.gender,
     height: parseInt(character.height),
     weight: parseInt(character.mass),
-    hair_color: character.hair_color,
-    eye_color: character.eye_color,
-    birth_year: character.birth_year,
-    num_of_movies: character.films.length,
+    hairColor: character.hair_color,
+    eyeColor: character.eye_color,
+    birthYear: character.birth_year,
+    numOfMovies: character.films.length,
   }));
 }
