@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { CardDetailsValue } from '../../../../styles/global';
 
 export const MovieCardWrapper = styled.div`
   width: 100%;
@@ -30,7 +31,7 @@ export const MovieCardEpisode = styled.h3`
 export const MovieCardDetails = styled.div`
   padding: ${(props) => `${props.theme.spacing.md} 0`};
 
-  ${MovieCardDetailsItem}:not(:last-of-type) {
+  ${CardDetailsValue}:not(:last-of-type) {
     margin-bottom: ${(props) => props.theme.spacing.md};
   }
 `;
