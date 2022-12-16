@@ -1,12 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-  StyledMovieCard,
-  MovieListWrapper,
-  PageHeader,
-  PageTitle,
-} from './styles';
+import { StyledMovieCard, MovieListWrapper } from './styles';
+import { PageTitle, PageHeader } from '../../styles/global';
 import {
   featchList,
   API_RESOURCE,
@@ -24,6 +20,7 @@ import './i18n';
 
 export default function MoviesPage() {
   const { t } = useTranslation('movies');
+  console.log(t('sort'));
   const [movieList, setMovieList] = useState<Movie[]>([]);
 
   useEffect(() => {
