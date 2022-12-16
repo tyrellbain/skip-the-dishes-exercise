@@ -1,6 +1,7 @@
 import { characters_en_CA } from './en_CA';
 
 export const characters_fr_CA: typeof characters_en_CA = {
+  title: 'Characters',
   card: {
     height: 'Hauteur',
     weight: 'Poids',
@@ -13,5 +14,5 @@ export const characters_fr_CA: typeof characters_en_CA = {
     name: 'Nom',
     numberMovies: '# Films',
     height: 'Hauteur',
-  }
-}
+  },
+};
