@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { render, wait, getByText, screen } from '@testing-library/react';
+import { render, waitFor, getByText, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from '../../../App';
@@ -26,7 +26,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
@@ -41,7 +41,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
@@ -66,7 +66,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
@@ -85,7 +85,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
