@@ -26,8 +26,9 @@ export default function CharactersPage() {
       const { results } = await featchList<CharacterListResonse>(
         API_RESOURCE.People,
       );
-      console.log(results);
-      setCharacterList(mapResponseToState(results));
+      setCharacterList(mapResponseToState(results).sort(sortByName));
+      console.log(sortingOptions[0].cb);
+      // sortingOptions[0].cb();
     };
 
     getList();

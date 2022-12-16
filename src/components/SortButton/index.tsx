@@ -25,18 +25,13 @@ export default function SortButton(props: Props) {
     throw new Error(`Sorting is missing properties`);
   }
 
-  useEffect(() => {
-    if (props.sorting[0]) {
-      props.sorting[0].cb();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const changeSorting = useCallback(() => {
     const nextSorting = sorting + 1 >= maxSorting ? 0 : sorting + 1;
     setSorting(nextSorting);
     const curSorting = props.sorting[nextSorting];
     console.log('curSorting', curSorting.cb);
+    console.log(props.sorting[0]);
+
     curSorting.cb();
   }, [maxSorting, props.sorting, sorting]);
 
