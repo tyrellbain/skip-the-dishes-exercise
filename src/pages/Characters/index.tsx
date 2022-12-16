@@ -27,8 +27,6 @@ export default function CharactersPage() {
         API_RESOURCE.People,
       );
       setCharacterList(mapResponseToState(results).sort(sortByName));
-      console.log(sortingOptions[0].cb);
-      // sortingOptions[0].cb();
     };
 
     getList();

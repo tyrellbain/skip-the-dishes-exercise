@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   SortButtonIconWrapper,
@@ -29,9 +29,6 @@ export default function SortButton(props: Props) {
     const nextSorting = sorting + 1 >= maxSorting ? 0 : sorting + 1;
     setSorting(nextSorting);
     const curSorting = props.sorting[nextSorting];
-    console.log('curSorting', curSorting.cb);
-    console.log(props.sorting[0]);
-
     curSorting.cb();
   }, [maxSorting, props.sorting, sorting]);
 
