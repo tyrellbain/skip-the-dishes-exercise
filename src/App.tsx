@@ -6,7 +6,8 @@ import MoviesPage from './pages/Movies';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import { PageWrapper, GlobalStyle } from './components/globals/styles';
-import "./i18n";
+import './i18n';
+import CharactersPage from './pages/Characters';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <main>
             <Routes>
               <Route element={<MoviesPage />} path="/" />
+              <Route element={<CharactersPage />} path="characters" />
             </Routes>
           </main>
         </PageWrapper>
