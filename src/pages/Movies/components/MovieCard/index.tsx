@@ -8,9 +8,9 @@ import {
   MovieCardDetailsTitle,
   MovieCardEpisode,
   MovieCardImage,
-  MovieCardTitle,
   MovieCardWrapper,
 } from './styles';
+import { StyledH2 } from '../../../../styles/global';
 
 export type Movie = {
   image: string;
@@ -43,7 +43,7 @@ export default function MovieCard({ movie }: Props) {
     <MovieCardWrapper data-testid={`movie-card-episode-${episode_id}`}>
       <MovieCardImage src={image} />
       <MovieCardBody>
-        <MovieCardTitle>{title}</MovieCardTitle>
+        <StyledH2>{title}</StyledH2>
         <MovieCardEpisode>
           {strings.episode} {episode_id}
         </MovieCardEpisode>

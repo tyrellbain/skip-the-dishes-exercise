@@ -20,14 +20,6 @@ export const MovieCardBody = styled.div`
   padding: ${(props) => props.theme.spacing.md};
 `;
 
-export const MovieCardTitle = styled.h2`
-  color: ${(props) => props.theme.colors.text};
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 18px;
-  margin-bottom: 4px;
-`;
-
 export const MovieCardEpisode = styled.h3`
   color: ${(props) => props.theme.colors.text};
   font-size: 12px;

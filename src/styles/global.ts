@@ -15,3 +15,11 @@ export const PageHeader = styled.div`
   margin-bottom: ${(props) => props.theme.spacing.lg};
   width: 100%;
 `;
+
+export const StyledH2 = styled.h2`
+  color: ${(props) => props.theme.colors.text};
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  margin-bottom: 4px;
+`;
