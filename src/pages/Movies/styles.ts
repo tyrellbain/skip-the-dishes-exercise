@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { MovieCardWrapper } from './components/MovieCard/styles';
 import MovieCard from './components/MovieCard';
-import { BREAKPOINTS } from '../../theme';
 
 export const PageHeader = styled.div`
   align-items: center;
@@ -20,7 +18,6 @@ export const PageTitle = styled.h1`
 `;
 
 export const MovieListWrapper = styled.div`
-  background: #000;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
