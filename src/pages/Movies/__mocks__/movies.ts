@@ -1,5 +1,5 @@
 import { Movie } from '../components/MovieCard';
-import {MovieListResponse, MovieResponse} from '../api';
+import { MovieListResponse, MovieResponse } from '../../../services/API/swapi';
 
 export function mockMovie(options: Omit<Movie, 'image'>): MovieResponse {
   return {
@@ -73,5 +73,5 @@ export function mockMoviesListResponse(): MovieListResponse {
     next: null,
     previous: null,
     results: mockMovies(),
-  }
+  };
 }

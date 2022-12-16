@@ -7,7 +7,11 @@ import {
   PageHeader,
   PageTitle,
 } from './styles';
-import { getMovieList } from './api';
+import {
+  featchList,
+  API_RESOURCE,
+  MovieListResponse,
+} from '../../services/API/swapi';
 import {
   mapResponseToState,
   sortByEpisode,
@@ -24,7 +28,10 @@ export default function MoviesPage() {
 
   useEffect(() => {
     const getList = async () => {
-      const { results } = await getMovieList();
+      console.log(await featchList(API_RESOURCE.Film));
+      const { results } = (await featchList(
+        API_RESOURCE.Film,
+      )) as MovieListResponse;
       setMovieList(mapResponseToState(results));
     };
 
