@@ -20,15 +20,13 @@ import './i18n';
 
 export default function MoviesPage() {
   const { t } = useTranslation('movies');
-  console.log(t('sort'));
   const [movieList, setMovieList] = useState<Movie[]>([]);
 
   useEffect(() => {
     const getList = async () => {
-      console.log(await featchList(API_RESOURCE.Film));
-      const { results } = (await featchList(
+      const { results } = await featchList<MovieListResponse>(
         API_RESOURCE.Film,
-      )) as MovieListResponse;
+      );
       setMovieList(mapResponseToState(results));
     };
 
