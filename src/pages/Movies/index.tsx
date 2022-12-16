@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -23,36 +23,39 @@ export default function MoviesPage() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
 
   useEffect(() => {
-    getMovieList()
-      .then(({ results }) => {
-        setMovieList(mapResponseToState(results));
-      })
-      .catch(console.error);
+    const getList = async () => {
+      const { results } = await getMovieList();
+      setMovieList(mapResponseToState(results));
+    };
+
+    getList();
   }, []);
 
-  const sortingOptions: SortFunction[] = [
-    {
-      label: t('sort.releaseDate'),
-      cb: () => {
-        const sortedList = movieList.sort(sortByReleaseDate);
-        setMovieList(sortedList);
+  const sortingOptions: SortFunction[] = useMemo(() => {
+    return [
+      {
+        label: t('sort.releaseDate'),
+        cb: () => {
+          const sortedList = [...movieList].sort(sortByReleaseDate);
+          setMovieList(sortedList);
+        },
       },
-    },
-    {
-      label: t('sort.episode'),
-      cb: () => {
-        const sortedList = movieList.sort(sortByEpisode);
-        setMovieList(sortedList);
+      {
+        label: t('sort.episode'),
+        cb: () => {
+          const sortedList = [...movieList].sort(sortByEpisode);
+          setMovieList(sortedList);
+        },
       },
-    },
-    {
-      label: t('sort.title'),
-      cb: () => {
-        const sortedList = movieList.sort(sortByTitle);
-        setMovieList(sortedList);
+      {
+        label: t('sort.title'),
+        cb: () => {
+          const sortedList = [...movieList].sort(sortByTitle);
+          setMovieList(sortedList);
+        },
       },
-    },
-  ];
+    ];
+  }, [movieList, t]);
 
   return (
     <>
@@ -62,7 +65,7 @@ export default function MoviesPage() {
       </PageHeader>
       <MovieListWrapper>
         {movieList.map((movie) => (
-          <StyledMovieCard movie={movie} />
+          <StyledMovieCard key={movie.title} movie={movie} />
         ))}
       </MovieListWrapper>
     </>
