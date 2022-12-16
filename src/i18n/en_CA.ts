@@ -12,4 +12,7 @@ export const global_en_CA = {
     vehicles: 'Vehicles',
     species: 'Species',
   },
+  sort: {
+    sortBy: 'Sort By',
+  },
 };

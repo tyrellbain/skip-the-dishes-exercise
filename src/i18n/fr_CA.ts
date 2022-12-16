@@ -14,4 +14,7 @@ export const global_fr_CA: typeof global_en_CA = {
     vehicles: 'Véhicules',
     species: 'Espèce',
   },
+  sort: {
+    sortBy: 'Trier par',
+  },
 };

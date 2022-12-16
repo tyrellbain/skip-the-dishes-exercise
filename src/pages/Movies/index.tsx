@@ -15,7 +15,7 @@ import {
   sortByTitle,
 } from './helpers';
 import { Movie } from './components/MovieCard';
-import SortButton, { SortFunction } from './components/SortButton';
+import SortButton, { SortFunction } from '../../components/SortButton';
 import './i18n';
 
 export default function MoviesPage() {

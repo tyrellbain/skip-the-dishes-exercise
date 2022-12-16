@@ -5,7 +5,7 @@ import {
   SortButtonText,
   SortButtonWrapper,
 } from './styles';
-import { ReactComponent as SortIcon } from '../../../../components/icons/svg/sort.svg';
+import { ReactComponent as SortIcon } from '../icons/svg/sort.svg';
 
 export type SortFunction = {
   label: string;
@@ -17,13 +17,20 @@ type Props = {
 };
 
 export default function SortButton(props: Props) {
-  const { t } = useTranslation('movies');
+  const { t } = useTranslation('common');
   const [sorting, setSorting] = useState(0);
   const maxSorting = props.sorting.length;
 
   if (maxSorting === 0) {
     throw new Error(`Sorting is missing properties`);
   }
+
+  useEffect(() => {
+    if (props.sorting[0]) {
+      props.sorting[0].cb();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const changeSorting = useCallback(() => {
     const nextSorting = sorting + 1 >= maxSorting ? 0 : sorting + 1;
