@@ -1,12 +1,12 @@
-import { MovieResponse } from '../api';
+import { MovieResponse } from '../../../services/API/swapi';
 import { Movie } from '../components/MovieCard';
 
-import episode_1 from "../assets/episode_1.png";
-import episode_2 from "../assets/episode_2.png";
-import episode_3 from "../assets/episode_3.png";
-import episode_4 from "../assets/episode_4.png";
-import episode_5 from "../assets/episode_5.png";
-import episode_6 from "../assets/episode_6.png";
+import episode_1 from '../assets/episode_1.png';
+import episode_2 from '../assets/episode_2.png';
+import episode_3 from '../assets/episode_3.png';
+import episode_4 from '../assets/episode_4.png';
+import episode_5 from '../assets/episode_5.png';
+import episode_6 from '../assets/episode_6.png';
 
 const episodeImages: Record<number, string> = {
   1: episode_1,
@@ -15,7 +15,7 @@ const episodeImages: Record<number, string> = {
   4: episode_4,
   5: episode_5,
   6: episode_6,
-}
+};
 
 export function mapResponseToState(
   movieListResponse: MovieResponse[],
