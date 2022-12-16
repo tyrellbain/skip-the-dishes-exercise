@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export enum API_RESOURCE {
   Film = 'https://swapi.dev/api/films',
-  People = 'https://swapi.dev/api/people,',
+  People = 'https://swapi.dev/api/people',
 }
 
 type APIResponse = MovieListResponse | CharacterListResonse;
@@ -11,7 +11,7 @@ export type CharacterResonse = {
   name: string;
   birth_year: string;
   eye_color: string;
-  gender: string;
+  gender: 'Male' | 'Female' | 'unknown' | 'n/a';
   hair_color: string;
   height: string;
   mass: string;
