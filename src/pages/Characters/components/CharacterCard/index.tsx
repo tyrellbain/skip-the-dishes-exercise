@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   CharacterCardDetail,
@@ -54,11 +54,11 @@ export default function CharacterCard({ character, className }: Props) {
       <CharacterCardDetails>
         <CharacterCardDetail>
           <CardDetailsTitle>{strings.height}</CardDetailsTitle>
-          <CardDetailsValue>{height}</CardDetailsValue>
+          <CardDetailsValue>{`${height}cm`}</CardDetailsValue>
         </CharacterCardDetail>
         <CharacterCardDetail>
           <CardDetailsTitle>{strings.weight}</CardDetailsTitle>
-          <CardDetailsValue>{weight}</CardDetailsValue>
+          <CardDetailsValue>{`${weight}kg`}</CardDetailsValue>
         </CharacterCardDetail>
         <CharacterCardDetail>
           <CardDetailsTitle>{strings.hairColor}</CardDetailsTitle>

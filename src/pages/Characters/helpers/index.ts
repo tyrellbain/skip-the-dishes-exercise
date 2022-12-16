@@ -15,3 +15,29 @@ export function mapResponseToState(
     numOfMovies: character.films.length,
   }));
 }
+
+export function sortByName(a: Character, b: Character): number {
+  const nameA = a.name.toLocaleLowerCase();
+  const nameB = b.name.toLocaleLowerCase();
+
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  return -1;
+}
+
+export function sortByNumOfMovies(a: Character, b: Character): number {
+  if (a.numOfMovies > b.numOfMovies) {
+    return 1;
+  }
+  return -1;
+}
+
+export function sortByHeight(a: Character, b: Character): number {
+  if (a.height > b.height) {
+    return 1;
+  }
+
+  return -1;
+}
