@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from '../../../components/globals/styles';
+import theme from '../../../theme';
 import { render, waitFor, getByText, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import App from '../../../App';
+import MoviePage from '../index';
+
 import { mockMoviesListResponse } from '../__mocks__/movies';
 
 const request = new MockAdapter(axios);
@@ -14,7 +18,12 @@ describe('The Movies Page', () => {
   const mockedMovies = mockMoviesListResponse();
 
   function renderMovies() {
-    return render(<App />);
+    return render(
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <MoviePage />
+      </ThemeProvider>,
+    );
   }
 
   afterEach(() => {
