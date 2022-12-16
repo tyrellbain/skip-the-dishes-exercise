@@ -27,21 +27,6 @@ export const MovieCardEpisode = styled.h3`
   line-height: 12px;
 `;
 
-export const MovieCardDetailsTitle = styled.h4`
-  color: ${(props) => props.theme.colors.secondaryText};
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 12px;
-  margin-bottom: ${(props) => props.theme.spacing.sm};
-`;
-
-export const MovieCardDetailsItem = styled.p`
-  color: ${(props) => props.theme.colors.text};
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 14px;
-`;
-
 export const MovieCardDetails = styled.div`
   padding: ${(props) => `${props.theme.spacing.md} 0`};
 
