@@ -25,11 +25,10 @@ type Props = {
   movie: Movie;
 };
 
-export default function MovieCard(props: Props) {
+export default function MovieCard({ movie }: Props) {
   const { t } = useTranslation('movies');
   const [isOpen, setIsOpen] = useState(false);
-  const { image, title, episode_id, director, producer, release_date } =
-    props.movie;
+  const { image, title, episode_id, director, producer, release_date } = movie;
 
   const strings = useMemo(() => {
     return {
