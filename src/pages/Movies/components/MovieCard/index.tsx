@@ -4,13 +4,15 @@ import {
   MovieCardAction,
   MovieCardBody,
   MovieCardDetails,
-  MovieCardDetailsItem,
-  MovieCardDetailsTitle,
   MovieCardEpisode,
   MovieCardImage,
-  MovieCardTitle,
   MovieCardWrapper,
 } from './styles';
+import {
+  CardDetailsTitle,
+  CardDetailsValue,
+  CardTitle,
+} from '../../../../styles/global';
 
 export type Movie = {
   image: string;
@@ -25,11 +27,10 @@ type Props = {
   movie: Movie;
 };
 
-export default function MovieCard(props: Props) {
+export default function MovieCard({ movie }: Props) {
   const { t } = useTranslation('movies');
   const [isOpen, setIsOpen] = useState(false);
-  const { image, title, episode_id, director, producer, release_date } =
-    props.movie;
+  const { image, title, episode_id, director, producer, release_date } = movie;
 
   const strings = useMemo(() => {
     return {
@@ -44,20 +45,20 @@ export default function MovieCard(props: Props) {
     <MovieCardWrapper data-testid={`movie-card-episode-${episode_id}`}>
       <MovieCardImage src={image} />
       <MovieCardBody>
-        <MovieCardTitle>{title}</MovieCardTitle>
+        <CardTitle>{title}</CardTitle>
         <MovieCardEpisode>
           {strings.episode} {episode_id}
         </MovieCardEpisode>
         {isOpen && (
           <MovieCardDetails>
-            <MovieCardDetailsTitle>{strings.director}</MovieCardDetailsTitle>
-            <MovieCardDetailsItem>{director}</MovieCardDetailsItem>
-            <MovieCardDetailsTitle>{strings.producer}</MovieCardDetailsTitle>
-            <MovieCardDetailsItem>{producer}</MovieCardDetailsItem>
-            <MovieCardDetailsTitle>{strings.released}</MovieCardDetailsTitle>
-            <MovieCardDetailsItem>
+            <CardDetailsTitle>{strings.director}</CardDetailsTitle>
+            <CardDetailsValue>{director}</CardDetailsValue>
+            <CardDetailsTitle>{strings.producer}</CardDetailsTitle>
+            <CardDetailsValue>{producer}</CardDetailsValue>
+            <CardDetailsTitle>{strings.released}</CardDetailsTitle>
+            <CardDetailsValue>
               {new Date(release_date).toDateString()}
-            </MovieCardDetailsItem>
+            </CardDetailsValue>
           </MovieCardDetails>
         )}
         <MovieCardAction onClick={() => setIsOpen((open) => !open)}>

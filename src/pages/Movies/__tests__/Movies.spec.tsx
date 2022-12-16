@@ -1,10 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { render, wait, getByText, screen } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from '../../../components/globals/styles';
+import theme from '../../../theme';
+import { render, waitFor, getByText, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import App from '../../../App';
+import MoviePage from '../index';
+
 import { mockMoviesListResponse } from '../__mocks__/movies';
 
 const request = new MockAdapter(axios);
@@ -14,7 +18,12 @@ describe('The Movies Page', () => {
   const mockedMovies = mockMoviesListResponse();
 
   function renderMovies() {
-    return render(<App />);
+    return render(
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <MoviePage />
+      </ThemeProvider>,
+    );
   }
 
   afterEach(() => {
@@ -26,7 +35,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
@@ -41,7 +50,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
@@ -66,7 +75,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 
@@ -85,7 +94,7 @@ describe('The Movies Page', () => {
     expect(request.history.get.length).toBe(0);
     getMovies.reply(200, mockedMovies);
 
-    await wait(() => {
+    await waitFor(() => {
       expect(request.history.get.length).toBe(1);
     });
 

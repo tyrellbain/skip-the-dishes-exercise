@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import {darken} from "polished";
-import {BREAKPOINTS} from "../../../../theme";
+import { darken } from 'polished';
+import { BREAKPOINTS } from '../../theme';
 
 export const SortButtonWrapper = styled.button`
   align-items: center;
@@ -14,9 +14,9 @@ export const SortButtonWrapper = styled.button`
   outline: none;
   padding: ${(props) => props.theme.spacing.md};
   transition: all 100ms ease-in-out;
-  
+
   :hover {
-    background: ${props => darken(0.03, props.theme.colors.background)};
+    background: ${(props) => darken(0.03, props.theme.colors.background)};
   }
 `;
 
@@ -33,7 +33,7 @@ export const SortButtonIconWrapper = styled.span`
 export const SortButtonText = styled.span`
   color: ${(props) => props.theme.colors.text};
   height: 16px;
-  
+
   @media screen and (max-width: ${BREAKPOINTS.sm}px) {
     span {
       display: none;
